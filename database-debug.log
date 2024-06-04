@@ -1,8 +1,4 @@
-09:12:30.874 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
-09:12:30.959 [main] INFO com.firebase.server.forge.App$ - Listening at 127.0.0.1:9000
-09:12:36.134 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO com.firebase.core.namespace.NamespaceActor - web-isolation-risk-default-rtdb successfully activated FBKV (SurveyIdle(0)) wait: 71ms, init: 0ms
-09:12:36.159 [NamespaceSystem-blocking-namespace-operation-dispatcher-8] INFO com.firebase.core.namespace.StateManager - Namespace web-isolation-risk-default-rtdb status Active to Active
-09:31:58.554 [Thread-0] INFO com.firebase.server.forge.App$ - Attempting graceful shutdown.
-09:31:58.567 [NamespaceSystem-akka.actor.default-dispatcher-11] INFO com.firebase.core.namespace.Terminator$Terminator - 1 actors left to terminate: web-isolation-risk-default-rtdb
-09:31:58.572 [NamespaceSystem-akka.actor.default-dispatcher-11] INFO com.firebase.core.namespace.NamespaceActor - stopped namespace actor for web-isolation-risk-default-rtdb
-09:31:58.575 [Thread-0] INFO com.firebase.server.forge.App$ - Graceful shutdown complete.
+14:16:31.419 [NamespaceSystem-akka.actor.default-dispatcher-4] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+14:16:31.523 [main] INFO com.firebase.server.forge.App$ - Listening at 127.0.0.1:9000
+14:16:36.902 [NamespaceSystem-akka.actor.default-dispatcher-4] INFO com.firebase.core.namespace.NamespaceActor - web-isolation-risk-default-rtdb successfully activated FBKV (SurveyIdle(0)) wait: 71ms, init: 0ms
+14:16:36.928 [NamespaceSystem-blocking-namespace-operation-dispatcher-6] INFO com.firebase.core.namespace.StateManager - Namespace web-isolation-risk-default-rtdb status Active to Active
