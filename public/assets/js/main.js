@@ -370,13 +370,6 @@ signInButtonElement.addEventListener('click', signIn);
 messageInputElement.addEventListener('keyup', toggleButton);
 messageInputElement.addEventListener('change', toggleButton);
 
-// Events for image upload.
-imageButtonElement.addEventListener('click', function(e) {
-  e.preventDefault();
-  mediaCaptureElement.click();
-});
-mediaCaptureElement.addEventListener('change', onMediaFileSelected);
-
 // initialize Firebase
 initFirebaseAuth();
 
