@@ -2,12 +2,61 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Submit URLs for checking">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>web isolation</title>
+    <title>Web Isolation</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="assets/styles/main.css">
   </head>
   <body>
-    <h1>Submit an URL!</h1>
+    <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
+      <!-- Header section containing logo -->
+      <header class="mdl-layout__header mdl-color-text--white mdl-color--light-blue-700">
+        <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-grid">
+          <div class="mdl-layout__header-row mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
+            <h1><i class="material-icons">chat_bubble_outline</i> Submit an URL!</h1>
+          </div>
+          <div id="user-container">
+            <div hidden id="user-pic"></div>
+            <div hidden id="user-name"></div>
+            <button hidden id="sign-out" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white">
+              Sign-out
+            </button>
+            <button hidden id="sign-in" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white">
+              <i class="material-icons">account_circle</i>Sign-in with Google
+            </button>
+          </div>
+        </div>
+      </header>
+          <!-- Messages container -->
+          <div id="messages-card" class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-cell--6-col-tablet mdl-cell--6-col-desktop">
+            <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+              <div id="messages">
+              </div>
+              <form id="message-form" action="#">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input class="mdl-textfield__input" type="text" id="message" autocomplete="off">
+                  <label class="mdl-textfield__label" for="message">URL to submit...</label>
+                </div>
+                <button id="submit" disabled type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                  Send
+                </button>
+              </form>
+              
+            </div>
+          </div>
+    
+          <div id="must-signin-snackbar" class="mdl-js-snackbar mdl-snackbar">
+            <div class="mdl-snackbar__text"></div>
+            <button class="mdl-snackbar__action" type="button"></button>
+          </div>
+    
+        </div>
+      </main>
+    </div>
 
     <div id="page-container"></div>
     <div class="container">
@@ -27,6 +76,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <script src="/__/firebase/8.6.7/firebase-app.js"></script>
+    <script src="/__/firebase/8.6.7/firebase-auth.js"></script>
+    <script src="/__/firebase/8.6.7/firebase-storage.js"></script>
+    <script src="/__/firebase/8.6.7/firebase-messaging.js"></script>
+    <script src="/__/firebase/8.6.7/firebase-firestore.js"></script>
+    <script src="/__/firebase/init.js"></script>
+    <script src="assets/js/main.js"></script>
     <script src="assets/js/routes.js"></script>
     <script src="assets/js/app.js"></script>
   </body>
