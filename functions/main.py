@@ -1,25 +1,34 @@
-from firebase_functions import firestore_fn, https_fn
+from firebase_functions.firestore_fn import (
+  on_document_created,
+  on_document_deleted,
+  on_document_updated,
+  on_document_written,
+  Event,
+  Change,
+  DocumentSnapshot,
+)
 
 # The Firebase Admin SDK to access Cloud Firestore.
 from firebase_admin import initialize_app, firestore
 import google.cloud.firestore
 
-from firebase_admin import initialize_app
-from firebase_functions.firestore_fn import (
-  on_document_created,
-  Event,
-  DocumentSnapshot,
-)
+app = initialize_app()
 
-initialize_app()
+@on_document_created(document="messages/{docID}", region="europe-west2")
+def newentry(event: Event[DocumentSnapshot | None]) -> None:
+    """Listens for new documents to be added to /messages. If the document has
+    an "text" field, it does some checking of it """
 
-@on_document_created(document="messages/{text}")
-def myfunction(event: Event[DocumentSnapshot]) -> None:
-  # Get a dictionary representing the document
-  # e.g. {'name': 'Marie', 'age': 66}
-  new_value = event.data.to_dict()
+    # Get the value of "original" if it exists.
+    if event.data is None:
+        return
+    try:
+        url = event.data.get("text")
+    except KeyError:
+        # No "text" field, so do nothing.
+        return
 
-  # Access a particular field as you would any dictionary
-  url = new_value["text"]
-  print(url)
-  # Perform more operations ...
+    # Set the "uppercase" field.
+    print(f"Checking virus total for {event.params['pushId']}: {text}")
+    
+    event.data.reference.update({"vt-score": "90%"})

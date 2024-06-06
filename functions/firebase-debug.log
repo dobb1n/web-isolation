@@ -1,0 +1,16 @@
+[debug] [2024-06-05T06:59:11.244Z] ----------------------------------------------------------------------
+[debug] [2024-06-05T06:59:11.249Z] Command:       /Users/benmorton/.nvm/versions/node/v21.1.0/bin/node /Users/benmorton/.nvm/versions/node/v21.1.0/bin/firebase emulators:start
+[debug] [2024-06-05T06:59:11.249Z] CLI Version:   13.10.2
+[debug] [2024-06-05T06:59:11.249Z] Platform:      darwin
+[debug] [2024-06-05T06:59:11.249Z] Node Version:  v21.1.0
+[debug] [2024-06-05T06:59:11.250Z] Time:          Wed Jun 05 2024 07:59:11 GMT+0100 (British Summer Time)
+[debug] [2024-06-05T06:59:11.250Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-06-05T06:59:11.283Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-06-05T06:59:11.283Z] > authorizing via signed-in user (dobbinwondermule@gmail.com)
+[debug] [2024-06-05T06:59:16.290Z] Error: Timed out.
+    at Timeout._onTimeout (/Users/benmorton/.nvm/versions/node/v21.1.0/lib/node_modules/firebase-tools/lib/utils.js:267:49)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[error] 
+[error] Error: An unexpected error has occurred.

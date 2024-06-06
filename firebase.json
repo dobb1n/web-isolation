@@ -6,17 +6,7 @@
     {
       "source": "functions",
       "codebase": "default",
-      "ignore": [
-        "venv",
-        ".git",
-        "firebase-debug.log",
-        "firebase-debug.*.log",
-        "*.local"
-      ]
-    },
-    {
-      "source": "functions2",
-      "codebase": "functions",
+      "runtime": "python311",
       "ignore": [
         "venv",
         ".git",

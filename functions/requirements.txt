@@ -1,2 +1,1 @@
-firebase-functions
-firebase-admin
+firebase_functions
