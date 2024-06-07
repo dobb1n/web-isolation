@@ -13,10 +13,8 @@ this updates : https://web-isolation-risk.web.app/
 ## working
 - front end auth
 - execution of cloud function on new doc creation
-
+- vt returned data now updates the web request it came from 
 
 ## todo
 - check db rules
-- do something better with the virustotal data returned - i.e update status, and when status changes to completed, then go off and run the decision engine. 
-- store it in the right collection
 - have front end subscribe to doc to get updated

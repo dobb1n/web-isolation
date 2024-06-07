@@ -24,17 +24,16 @@ app = initialize_app()
 VIRUSTOTAL_API_KEY = SecretParam('VIRUSTOTAL_API_KEY')
 
 @on_document_created(document="messages/{docID}", region="europe-west2", secrets=[VIRUSTOTAL_API_KEY])
-def newentry(event: Event[DocumentSnapshot | None]) -> None:
+def newentry(event: Event[Change[DocumentSnapshot]]) -> None:
     """Listens for new documents to be added to /messages. If the document has
     an "text" field, it does some checking of it """
-
     # Get the value of "original" if it exists.
     if event.data is None:
         return
     try:
-        new_value = event.data.to_dict()
+        existing_value = event.data.to_dict()
         api_key = VIRUSTOTAL_API_KEY.value
-        vt_return = vt_lookup(api_key,new_value['text'])
+        vt_return = vt_lookup(api_key,existing_value['text'])
         event.data.reference.update(vt_return)
     except KeyError:
         # No "text" field, so do nothing.
