@@ -29,6 +29,6 @@ def newentry(event: Event[DocumentSnapshot | None]) -> None:
         return
 
     # Set the "uppercase" field.
-    print(f"Checking virus total for {event.params['pushId']}: {text}")
+    print(f"Checking virus total for {event.params['docID']}: {text}")
     
     event.data.reference.update({"vt-score": "90%"})
