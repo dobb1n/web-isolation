@@ -34,35 +34,36 @@ def newentry(event: Event[DocumentSnapshot | None]) -> None:
     try:
         new_value = event.data.to_dict()
         api_key = VIRUSTOTAL_API_KEY.value
-        print(vt_lookup(api_key,new_value['text']))
+        vt_return = vt_lookup(api_key,new_value['text'])
+        event.data.reference.update(vt_return)
     except KeyError:
         # No "text" field, so do nothing.
         return
     
-    def vt_lookup(api_key, url):
-        url = "https://www.virustotal.com/api/v3/urls"
+def vt_lookup(api_key, url):
+    url = "https://www.virustotal.com/api/v3/urls"
 
-        payload = { "url": url }
-        headers = {
-            "accept": "application/json",
-            "x-apikey": api_key,
-            "content-type": "application/x-www-form-urlencoded"
-        }
+    payload = { "url": url }
+    headers = {
+        "accept": "application/json",
+        "x-apikey": api_key,
+        "content-type": "application/x-www-form-urlencoded"
+    }
 
-        # first we have to go and get the request for the url 
-        response = requests.post(url, data=payload, headers=headers)
-        if response.status_code == 200:
-            response_json = json.loads(response.text)
-        else:
-            return f"Went wrong {response.status_code}"
+    # first we have to go and get the request for the url 
+    response = requests.post(url, data=payload, headers=headers)
+    if response.status_code == 200:
+        response_json = json.loads(response.text)
+    else:
+        return f"Went wrong {response.status_code}"
 
-        # from the response we can get the link to the actual scan
-        scan_response = requests.get(response_json['data']['links']['self'], headers=headers)
-        if scan_response.status_code == 200:
-            scan_response_json = json.loads(scan_response.text)
-            return scan_response_json
-        else:
-            return f"Something went wrong {scan_response.status_code}"
+    # from the response we can get the link to the actual scan
+    scan_response = requests.get(response_json['data']['links']['self'], headers=headers)
+    if scan_response.status_code == 200:
+        scan_response_json = json.loads(scan_response.text)
+        return scan_response_json
+    else:
+        return f"Something went wrong {scan_response.status_code}"
             
     # event.data.reference.update({"vt-score": "90%"})
 
